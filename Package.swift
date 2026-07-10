@@ -51,7 +51,7 @@ let package = Package(
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.2"),
         .package(url: "https://github.com/swift-server/async-http-client", from: "1.26.1"),
         .package(url: "https://github.com/apple/swift-log", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-crypto", from: "3.0.0"),
+        .package(url: "https://github.com/apple/swift-crypto", "3.0.0"..<"5.0.0"),
         .package(url: "https://github.com/coenttb/swift-urlrequest-handler", from: "0.0.2"),
         .package(url: "https://github.com/coenttb/swift-logging-extras", from: "0.0.1")
     ],
