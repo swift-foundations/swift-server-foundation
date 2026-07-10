@@ -43,17 +43,17 @@ let package = Package(
         .library(name: .serverEnvVars, targets: [.serverEnvVars])
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-types-foundation", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-types-foundation.git", branch: "main"),
         .package(url: "https://github.com/coenttb/swift-environment-variables", from: "0.0.1"),
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
         .package(url: "https://github.com/coenttb/swift-password-validation", from: "0.0.1"),
-        .package(url: "https://github.com/coenttb/swift-throttling", from: "0.0.1"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.2"),
-        .package(url: "https://github.com/swift-server/async-http-client", from: "1.26.1"),
-        .package(url: "https://github.com/apple/swift-log", from: "1.0.0"),
-        .package(url: "https://github.com/apple/swift-crypto", "3.0.0"..<"5.0.0"),
-        .package(url: "https://github.com/coenttb/swift-urlrequest-handler", from: "0.0.2"),
-        .package(url: "https://github.com/coenttb/swift-logging-extras", from: "0.0.1")
+        .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
+        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.9.2"),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.26.1"),
+        .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
+        .package(url: "https://github.com/swift-foundations/swift-urlrequest-handler.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-logging-extras.git", branch: "main")
     ],
     targets: [
         .target(
