@@ -6,7 +6,6 @@
 //
 
 import DependenciesTestSupport
-import EnvironmentVariables
 import Foundation
 import Logging
 import Testing

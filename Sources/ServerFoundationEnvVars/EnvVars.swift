@@ -5,7 +5,6 @@
 //  Created by Coen ten Thije Boonkkamp on 03/06/2022.
 //
 
-import EnvironmentVariables
 import Foundation
 import Logging
 

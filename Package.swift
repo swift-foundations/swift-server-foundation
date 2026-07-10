@@ -18,10 +18,11 @@ extension Target.Dependency {
     static var loggingExtras: Self { .product(name: "LoggingExtras", package: "swift-logging-extras") }
     static var asyncHttpClient: Self { .product(name: "AsyncHTTPClient", package: "async-http-client") }
     static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
-    static var environmentVariables: Self { .product(name: "EnvironmentVariables", package: "swift-environment-variables") }
+    static var dependencies: Self { .product(name: "Dependencies", package: "swift-dependencies") }
+    static var environment: Self { .product(name: "Environment", package: "swift-environment") }
     static var logging: Self { .product(name: "Logging", package: "swift-log") }
     static var throttling: Self { .product(name: "Throttling", package: "swift-throttling") }
-    static var passwordValidation: Self { .product(name: "PasswordValidation", package: "swift-password-validation") }
+    static var passwordValidation: Self { .product(name: "PasswordValidation", package: "swift-password") }
     static var crypto: Self { .product(name: "Crypto", package: "swift-crypto") }
     static var jwt: Self { .product(name: "JWT", package: "swift-json-web-token") }
 }
@@ -44,9 +45,9 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-foundations/swift-types-foundation.git", branch: "main"),
-        .package(url: "https://github.com/coenttb/swift-environment-variables", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
-        .package(url: "https://github.com/coenttb/swift-password-validation", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-password.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.26.1"),
@@ -62,7 +63,6 @@ let package = Package(
                 .typesFoundation,
                 .serverEnvVars,
                 .asyncHttpClient,
-                .environmentVariables,
                 .logging,
                 .loggingExtras,
                 .throttling,
@@ -82,7 +82,8 @@ let package = Package(
         .target(
             name: .serverEnvVars,
             dependencies: [
-                .environmentVariables,
+                .environment,
+                .dependencies,
                 .logging
             ]
         ),
