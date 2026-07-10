@@ -17,7 +17,7 @@ extension Target.Dependency {
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
     static var loggingExtras: Self { .product(name: "LoggingExtras", package: "swift-logging-extras") }
     static var asyncHttpClient: Self { .product(name: "AsyncHTTPClient", package: "async-http-client") }
-    static var dependenciesTestSupport: Self { .product(name: "DependenciesTestSupport", package: "swift-dependencies") }
+    static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
     static var environmentVariables: Self { .product(name: "EnvironmentVariables", package: "swift-environment-variables") }
     static var logging: Self { .product(name: "Logging", package: "swift-log") }
     static var throttling: Self { .product(name: "Throttling", package: "swift-throttling") }
@@ -48,7 +48,7 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
         .package(url: "https://github.com/coenttb/swift-password-validation", from: "0.0.1"),
         .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies.git", from: "1.9.2"),
+        .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.26.1"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
