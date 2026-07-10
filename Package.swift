@@ -1,4 +1,4 @@
-// swift-tools-version:6.0
+// swift-tools-version: 6.3.1
 
 import PackageDescription
 
@@ -23,14 +23,14 @@ extension Target.Dependency {
     static var throttling: Self { .product(name: "Throttling", package: "swift-throttling") }
     static var passwordValidation: Self { .product(name: "PasswordValidation", package: "swift-password-validation") }
     static var crypto: Self { .product(name: "Crypto", package: "swift-crypto") }
-    static var jwt: Self { .product(name: "JWT", package: "swift-jwt") }
+    static var jwt: Self { .product(name: "JWT", package: "swift-json-web-token") }
 }
 
 let package = Package(
     name: "swift-server-foundation",
     platforms: [
-        .macOS(.v14),
-        .iOS(.v17)
+        .macOS(.v26),
+        .iOS(.v26)
     ],
     products: [
         .library(
@@ -45,7 +45,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/coenttb/swift-types-foundation", from: "0.0.1"),
         .package(url: "https://github.com/coenttb/swift-environment-variables", from: "0.0.1"),
-        .package(url: "https://github.com/coenttb/swift-jwt", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
         .package(url: "https://github.com/coenttb/swift-password-validation", from: "0.0.1"),
         .package(url: "https://github.com/coenttb/swift-throttling", from: "0.0.1"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.2"),
