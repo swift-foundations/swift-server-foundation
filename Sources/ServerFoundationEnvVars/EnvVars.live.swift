@@ -4,7 +4,7 @@
 //
 //  Live `EnvVars` construction and swift-dependencies integration. The process
 //  environment is read through the institute `Environment` package, replacing the
-//  superseded swift-environment-variables reader. An optional JSON environment file
+//  superseded swift-environment-variables reader. An optional dotenv environment file
 //  is overlaid on top of the process environment (file values win).
 //
 
@@ -14,19 +14,19 @@ import Foundation
 
 extension EnvVars {
     /// Builds an `EnvVars` from the live process environment, overlaying an optional
-    /// JSON environment file (file values take precedence over the process environment).
-    public static func live(localEnvFile: URL? = nil) throws -> EnvVars {
+    /// dotenv environment file (file values take precedence over the process environment).
+    public static func live(localEnvFile: Foundation.URL? = nil) throws -> EnvVars {
         var dictionary = Environment.read.all()
         if let localEnvFile,
             let data = try? Data(contentsOf: localEnvFile),
-            let fileValues = try? JSONDecoder().decode([String: String].self, from: data)
+            let fileValues = try? Environment.Dotenv(parsing: Swift.String(decoding: data, as: Swift.UTF8.self)).values
         {
             for (key, value) in fileValues { dictionary[key] = value }
         }
         return try EnvVars(dictionary: dictionary, requiredKeys: [])
     }
 
-    /// Builds an `EnvVars` from the live process environment, overlaying the JSON
+    /// Builds an `EnvVars` from the live process environment, overlaying the dotenv
     /// environment file resolved from `configuration` (file values take precedence).
     public static func live(
         environmentConfiguration configuration: EnvironmentConfiguration
@@ -39,14 +39,14 @@ extension EnvVars {
     }
 }
 
-extension EnvVars: DependencyKey {
+extension EnvVars: Dependency.Key {
     /// The live value reads the current process environment via institute `Environment`.
     public static var liveValue: EnvVars {
         (try? live()) ?? EnvVars()
     }
 }
 
-extension DependencyValues {
+extension Dependency.Values {
     /// The application's environment variables.
     public var envVars: EnvVars {
         get { self[EnvVars.self] }
