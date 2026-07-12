@@ -5,14 +5,14 @@ import NIOPosix
 
 public enum MainEventLoopGroup {}
 
-extension DependencyValues {
+extension Dependency.Values {
     public var mainEventLoopGroup: any EventLoopGroup {
         get { self[MainEventLoopGroup.self] }
         set { self[MainEventLoopGroup.self] = newValue }
     }
 }
 
-extension MainEventLoopGroup: TestDependencyKey {
+extension MainEventLoopGroup: Dependency.Key.Test {
     public static var testValue: any EventLoopGroup { embedded }
 }
 

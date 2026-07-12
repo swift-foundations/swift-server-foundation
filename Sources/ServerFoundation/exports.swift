@@ -8,13 +8,11 @@
 @_exported import AsyncHTTPClient
 @_exported import BoundedCache
 @_exported import Crypto
-@_exported import IssueReporting
 @_exported import JWT
 @_exported import Logging
 @_exported import LoggingExtras
 @_exported import PasswordValidation
 @_exported import ServerFoundationEnvVars
-@_exported import Tagged
 @_exported import Throttling
 @_exported import TypesFoundation
 @_exported import URLRequestHandler

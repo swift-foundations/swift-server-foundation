@@ -112,11 +112,11 @@ extension InMemoryStore {
     }
 }
 
-extension InMemoryStore: TestDependencyKey {
+extension InMemoryStore: Dependency.Key.Test {
     public static let testValue: InMemoryStore = .init(capacity: 100)  // Smaller capacity for tests
 }
 
-extension DependencyValues {
+extension Dependency.Values {
     public var inMemoryStore: InMemoryStore {
         get { self[InMemoryStore.self] }
         set { self[InMemoryStore.self] = newValue }

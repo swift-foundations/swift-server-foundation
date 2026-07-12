@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 23/07/2025.
 //
 
-import DependenciesTestSupport
+import Dependencies_Test_Support
 import Foundation
 import Logging
 import Testing
