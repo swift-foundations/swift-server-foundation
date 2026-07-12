@@ -5,20 +5,23 @@
 //  Created by Coen ten Thije Boonkkamp on 16/09/2024.
 //
 
+import Cache_Primitives
 import Dependencies
 import Foundation
 
 public actor InMemoryStore {
-    private struct Entry {
+    /// - Note: `@unchecked Sendable` because `value` is `Any`; `Cache.Bounded`
+    ///   requires `Value: Sendable`. Access is confined to the `InMemoryStore` actor.
+    private struct Entry: @unchecked Sendable {
         let value: Any
         let expiresAt: Date?
     }
 
-    private let cache: BoundedCache<String, Entry>
+    private let cache: Cache<String, Entry>.Bounded
     private var cleanupTimer: SendableTimer?
 
     public init(capacity: Int = 1000, cleanupInterval: TimeInterval = 60) {
-        self.cache = BoundedCache(capacity: capacity)
+        self.cache = .init(capacity: capacity)
         Task {
             await self.startCleanupTimer(interval: cleanupInterval)
         }
@@ -102,7 +105,7 @@ extension InMemoryStore {
         cache.removeAll()
     }
 
-    // Additional utility methods that leverage BoundedCache capabilities
+    // Additional utility methods that leverage Cache.Bounded capabilities
     public var count: Int {
         cache.count
     }

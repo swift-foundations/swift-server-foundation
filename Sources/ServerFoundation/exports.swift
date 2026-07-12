@@ -6,7 +6,6 @@
 //
 
 @_exported import AsyncHTTPClient
-@_exported import BoundedCache
 @_exported import Crypto
 @_exported import JWT
 @_exported import Logging

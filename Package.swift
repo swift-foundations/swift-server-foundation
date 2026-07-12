@@ -13,6 +13,7 @@ extension Target.Dependency {
 }
 
 extension Target.Dependency {
+    static var cachePrimitives: Self { .product(name: "Cache Primitives", package: "swift-cache-primitives") }
     static var typesFoundation: Self { .product(name: "TypesFoundation", package: "swift-types-foundation") }
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
     static var loggingExtras: Self { .product(name: "LoggingExtras", package: "swift-logging-extras") }
@@ -44,6 +45,7 @@ let package = Package(
         .library(name: .serverEnvVars, targets: [.serverEnvVars])
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-primitives/swift-cache-primitives.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-types-foundation.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
@@ -60,6 +62,7 @@ let package = Package(
         .target(
             name: .serverFoundation,
             dependencies: [
+                .cachePrimitives,
                 .typesFoundation,
                 .serverEnvVars,
                 .asyncHttpClient,
