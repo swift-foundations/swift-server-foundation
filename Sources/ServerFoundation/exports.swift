@@ -5,7 +5,6 @@
 //  Created by Coen ten Thije Boonkkamp on 21/12/2024.
 //
 
-@_exported import AsyncHTTPClient
 @_exported import Crypto
 @_exported import JWT
 @_exported import Logging

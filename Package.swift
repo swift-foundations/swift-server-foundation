@@ -17,7 +17,9 @@ extension Target.Dependency {
     static var typesFoundation: Self { .product(name: "TypesFoundation", package: "swift-types-foundation") }
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
     static var loggingExtras: Self { .product(name: "LoggingExtras", package: "swift-logging-extras") }
-    static var asyncHttpClient: Self { .product(name: "AsyncHTTPClient", package: "async-http-client") }
+    static var nioCore: Self { .product(name: "NIOCore", package: "swift-nio") }
+    static var nioEmbedded: Self { .product(name: "NIOEmbedded", package: "swift-nio") }
+    static var nioPosix: Self { .product(name: "NIOPosix", package: "swift-nio") }
     static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
     static var dependencies: Self { .product(name: "Dependencies", package: "swift-dependencies") }
     static var environment: Self { .product(name: "Environment", package: "swift-environment") }
@@ -52,7 +54,7 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-password.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
-        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.26.1"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
         .package(url: "https://github.com/swift-foundations/swift-urlrequest-handler.git", branch: "main"),
@@ -65,7 +67,9 @@ let package = Package(
                 .cachePrimitives,
                 .typesFoundation,
                 .serverEnvVars,
-                .asyncHttpClient,
+                .nioCore,
+                .nioEmbedded,
+                .nioPosix,
                 .logging,
                 .loggingExtras,
                 .throttling,
