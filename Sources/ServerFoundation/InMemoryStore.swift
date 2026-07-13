@@ -1,8 +1,10 @@
 //
-//  File.swift
-//  coenttb-web
+//  InMemoryStore.swift
+//  swift-server-foundation
 //
-//  Created by Coen ten Thije Boonkkamp on 16/09/2024.
+//  W3-PARKED (C5): stays in the shell pending the swift-time-to-live stub
+//  population (a principal ⚑; fill-shape proposal rides the W3 close report).
+//  The Any-erasure is a known defect — drop it at the fill, do not move it.
 //
 
 import Cache_Primitives

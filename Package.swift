@@ -22,6 +22,10 @@ extension Target.Dependency {
     static var nioPosix: Self { .product(name: "NIOPosix", package: "swift-nio") }
     static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
     static var dependencies: Self { .product(name: "Dependencies", package: "swift-dependencies") }
+    static var clocksDependencies: Self { .product(name: "Clocks Dependencies", package: "swift-clocks-dependencies") }
+    static var throttlingDependencies: Self { .product(name: "Throttling Dependencies", package: "swift-throttling-dependencies") }
+    static var translatingDependencies: Self { .product(name: "Translating Dependencies", package: "swift-translating-dependencies") }
+    static var environmentDependencies: Self { .product(name: "Environment Dependencies", package: "swift-environment-dependencies") }
     static var environment: Self { .product(name: "Environment", package: "swift-environment") }
     static var logging: Self { .product(name: "Logging", package: "swift-log") }
     static var throttling: Self { .product(name: "Throttling", package: "swift-throttling") }
@@ -54,6 +58,10 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-password.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-clocks-dependencies.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-throttling-dependencies.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-translating-dependencies.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-environment-dependencies.git", branch: "main"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
@@ -65,6 +73,9 @@ let package = Package(
             name: .serverFoundation,
             dependencies: [
                 .cachePrimitives,
+                .clocksDependencies,
+                .throttlingDependencies,
+                .translatingDependencies,
                 .typesFoundation,
                 .serverEnvVars,
                 .nioCore,
@@ -89,16 +100,7 @@ let package = Package(
         .target(
             name: .serverEnvVars,
             dependencies: [
-                .environment,
-                .dependencies,
-                .logging
-            ]
-        ),
-        .testTarget(
-            name: .serverEnvVars.tests,
-            dependencies: [
-                .serverEnvVars,
-                .dependenciesTestSupport
+                .environmentDependencies
             ]
         )
     ],

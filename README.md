@@ -1,7 +1,24 @@
 # swift-server-foundation
 
-[![CI](https://github.com/coenttb/swift-server-foundation/workflows/CI/badge.svg)](https://github.com/coenttb/swift-server-foundation/actions/workflows/ci.yml)
-![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
+![Status](https://img.shields.io/badge/status-DISSOLVED--W3--shell-red.svg)
+
+> **W3-SHELL (TEMPORARY).** swift-server-foundation is **dissolved**
+> (decomposition W3, 2026-07-14). This package survives as a marked re-export
+> shell ONLY so existing manifests and the app resolve unchanged until the
+> E-program app cutover. Do not add new consumers.
+>
+> | Former concern | New home |
+> |---|---|
+> | `\.date` + `Date.Generator` (C1) | [swift-clocks-dependencies](https://github.com/swift-foundations/swift-clocks-dependencies) |
+> | `\.httpClient` (C2) | **deleted** — dead code (de-engine R3) |
+> | `\.mainEventLoopGroup` (C3) | stays here until β-end (de-engine R5) |
+> | console `LogHandler` (C4) | [swift-logging-extras](https://github.com/swift-foundations/swift-logging-extras) `ConsoleLogHandler` |
+> | `InMemoryStore` TTL cache (C5) | parked here → swift-time-to-live fill (pending ⚑) |
+> | `URL.canonical` (C6) | parked here → swift-uri fill (design item) |
+> | `Path` constants (C7) | [swift-url-routing](https://github.com/swift-foundations/swift-url-routing) compat surface |
+> | `EnvVars` + `\.envVars`/`\.projectRoot` (C8) | [swift-environment-dependencies](https://github.com/swift-foundations/swift-environment-dependencies) |
+> | throttling × dependencies (C9) | [swift-throttling-dependencies](https://github.com/swift-foundations/swift-throttling-dependencies) |
+> | translating seam | [swift-translating-dependencies](https://github.com/swift-foundations/swift-translating-dependencies) |
 
 A foundation library for server-side Swift development that consolidates essential packages for building server applications.
 

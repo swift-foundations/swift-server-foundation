@@ -1,8 +1,10 @@
 //
 //  URLOptional.canonical.swift
-//  coenttb-web
+//  swift-server-foundation
 //
-//  Created by Coen ten Thije Boonkkamp on 22/08/2024.
+//  W3-PARKED (C6): stays in the shell; its home is the swift-uri fill as a
+//  design item (ASK-3 ruling 22:41) — an RFC 3986 canonicalization, not a
+//  transliteration of this Foundation/URLComponents algorithm.
 //
 
 import Foundation
