@@ -12,7 +12,7 @@
 > | `\.date` + `Date.Generator` (C1) | [swift-clocks-dependencies](https://github.com/swift-foundations/swift-clocks-dependencies) |
 > | `\.httpClient` (C2) | **deleted** — dead code (de-engine R3) |
 > | `\.mainEventLoopGroup` (C3) | stays here until β-end (de-engine R5) |
-> | console `LogHandler` (C4) | [swift-logging-extras](https://github.com/swift-foundations/swift-logging-extras) `ConsoleLogHandler` |
+> | console logger handler (C4) | [swift-logger-handlers](https://github.com/swift-foundations/swift-logger-handlers) `Logger.Handler.Console` |
 > | `InMemoryStore` TTL cache (C5) | parked here → swift-time-to-live fill (pending ⚑) |
 > | `URL.canonical` (C6) | parked here → swift-uri fill (design item) |
 > | `Path` constants (C7) | [swift-url-routing](https://github.com/swift-foundations/swift-url-routing) compat surface |
@@ -130,7 +130,7 @@ let apiKey = try EnvVars.API_KEY.require()
 
 - [swift-environment-variables](https://github.com/coenttb/swift-environment-variables): A Swift package for type-safe environment variable management.
 - [swift-jwt](https://github.com/coenttb/swift-jwt): A Swift package for creating, signing, and verifying JSON Web Tokens.
-- [swift-logging-extras](https://github.com/coenttb/swift-logging-extras): A Swift package for integrating swift-logging with swift-dependencies.
+- [swift-logger-handlers](https://github.com/swift-foundations/swift-logger-handlers): Focused logger handlers for Swift Logging.
 - [swift-password-validation](https://github.com/coenttb/swift-password-validation): A Swift package for type-safe password validation.
 - [swift-throttling](https://github.com/coenttb/swift-throttling): A Swift package for request throttling.
 - [swift-types-foundation](https://github.com/coenttb/swift-types-foundation): A Swift package bundling essential type-safe packages for domain modeling.

@@ -14,7 +14,6 @@
 @_exported import Crypto
 @_exported import JWT
 @_exported import Logging
-@_exported import LoggingExtras
 @_exported import PasswordValidation
 @_exported import ServerFoundationEnvVars
 @_exported import Throttling

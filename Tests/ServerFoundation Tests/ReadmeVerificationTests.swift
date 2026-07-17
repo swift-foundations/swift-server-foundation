@@ -13,7 +13,7 @@ import Testing
 @testable import ServerFoundation
 
 @Suite
-struct Test {
+struct `Readme Verification Tests` {
 
     @Test
     func `Quick Start - Logging example`() throws {

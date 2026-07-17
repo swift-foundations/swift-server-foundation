@@ -11,7 +11,7 @@ import Testing
 @testable import ServerFoundation
 
 @Suite
-struct Test {
+struct `In Memory Store Tests` {
 
     // MARK: - Basic Operations Tests
 

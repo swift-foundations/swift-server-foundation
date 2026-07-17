@@ -16,7 +16,6 @@ extension Target.Dependency {
     static var cachePrimitives: Self { .product(name: "Cache Primitives", package: "swift-cache-primitives") }
     static var typesFoundation: Self { .product(name: "TypesFoundation", package: "swift-types-foundation") }
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
-    static var loggingExtras: Self { .product(name: "LoggingExtras", package: "swift-logging-extras") }
     static var nioCore: Self { .product(name: "NIOCore", package: "swift-nio") }
     static var nioEmbedded: Self { .product(name: "NIOEmbedded", package: "swift-nio") }
     static var nioPosix: Self { .product(name: "NIOPosix", package: "swift-nio") }
@@ -65,8 +64,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
-        .package(url: "https://github.com/swift-foundations/swift-urlrequest-handler.git", branch: "main"),
-        .package(url: "https://github.com/swift-foundations/swift-logging-extras.git", branch: "main")
+        .package(url: "https://github.com/swift-foundations/swift-urlrequest-handler.git", branch: "main")
     ],
     targets: [
         .target(
@@ -82,7 +80,6 @@ let package = Package(
                 .nioEmbedded,
                 .nioPosix,
                 .logging,
-                .loggingExtras,
                 .throttling,
                 .urlRequestHandler,
                 .passwordValidation,

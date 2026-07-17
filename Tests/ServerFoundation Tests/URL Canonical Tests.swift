@@ -11,7 +11,7 @@ import Testing
 @testable import ServerFoundation
 
 @Suite
-struct Test {
+struct `URL Canonical Tests` {
 
     @Test
     func `URL canonical updates host only`() throws {
