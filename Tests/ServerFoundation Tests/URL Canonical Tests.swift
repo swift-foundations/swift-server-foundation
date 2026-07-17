@@ -10,11 +10,11 @@ import Testing
 
 @testable import ServerFoundation
 
-@Suite("URL Canonical Tests")
-struct URLCanonicalTests {
+@Suite
+struct Test {
 
-    @Test("URL canonical updates host only")
-    func urlCanonicalUpdatesHostOnly() throws {
+    @Test
+    func `URL canonical updates host only`() throws {
         let originalURL = URL(string: "https://example.com/path?query=value")!
         let result = try URL.canonical(url: originalURL, canonicalHost: "canonical.com")
 
@@ -24,8 +24,8 @@ struct URLCanonicalTests {
         #expect(result.scheme == "https")
     }
 
-    @Test("URL canonical updates host and port")
-    func urlCanonicalUpdatesHostAndPort() throws {
+    @Test
+    func `URL canonical updates host and port`() throws {
         let originalURL = URL(string: "https://example.com:8080/path")!
         let result = try URL.canonical(url: originalURL, canonicalHost: "canonical.com:9090")
 
@@ -35,8 +35,8 @@ struct URLCanonicalTests {
         #expect(result.scheme == "https")
     }
 
-    @Test("URL canonical clears existing port when no port specified")
-    func urlCanonicalClearsExistingPortWhenNoPortSpecified() throws {
+    @Test
+    func `URL canonical clears existing port when no port specified`() throws {
         let originalURL = URL(string: "https://example.com:8080/path")!
         let result = try URL.canonical(url: originalURL, canonicalHost: "canonical.com")
 
@@ -45,8 +45,8 @@ struct URLCanonicalTests {
         #expect(result.path == "/path")
     }
 
-    @Test("URL canonical handles host with default port")
-    func urlCanonicalHandlesHostWithDefaultPort() throws {
+    @Test
+    func `URL canonical handles host with default port`() throws {
         let originalURL = URL(string: "https://example.com/path")!
         let result = try URL.canonical(url: originalURL, canonicalHost: "canonical.com:443")
 
@@ -54,8 +54,8 @@ struct URLCanonicalTests {
         #expect(result.port == 443)
     }
 
-    @Test("URL canonical rejects invalid port")
-    func urlCanonicalRejectsInvalidPort() {
+    @Test
+    func `URL canonical rejects invalid port`() {
         let originalURL = URL(string: "https://example.com/path")!
 
         #expect(throws: URLCanonicalError.invalidPort("invalid")) {
@@ -63,8 +63,8 @@ struct URLCanonicalTests {
         }
     }
 
-    @Test("URL canonical rejects empty canonical host")
-    func urlCanonicalRejectsEmptyCanonicalHost() {
+    @Test
+    func `URL canonical rejects empty canonical host`() {
         let originalURL = URL(string: "https://example.com/path")!
 
         #expect(throws: URLCanonicalError.emptyHost) {
@@ -72,8 +72,8 @@ struct URLCanonicalTests {
         }
     }
 
-    @Test("URL canonical handles multiple colons in host")
-    func urlCanonicalHandlesMultipleColonsInHost() {
+    @Test
+    func `URL canonical handles multiple colons in host`() {
         let originalURL = URL(string: "https://example.com/path")!
 
         #expect(throws: URLCanonicalError.invalidPort("8080:extra")) {
@@ -81,8 +81,8 @@ struct URLCanonicalTests {
         }
     }
 
-    @Test("URL canonical preserves fragment and query")
-    func urlCanonicalPreservesFragmentAndQuery() throws {
+    @Test
+    func `URL canonical preserves fragment and query`() throws {
         let originalURL = URL(string: "https://example.com/path?query=value#fragment")!
         let result = try URL.canonical(url: originalURL, canonicalHost: "canonical.com:8080")
 
@@ -92,8 +92,8 @@ struct URLCanonicalTests {
         #expect(result.fragment == "fragment")
     }
 
-    @Test("URL canonical rejects IPv6 addresses (not supported)")
-    func urlCanonicalRejectsIPv6Addresses() {
+    @Test
+    func `URL canonical rejects IPv6 addresses (not supported)`() {
         let originalURL = URL(string: "https://example.com/path")!
 
         #expect(throws: URLCanonicalError.malformedIPv6) {
@@ -109,8 +109,8 @@ struct URLCanonicalTests {
         }
     }
 
-    @Test("URL canonical rejects invalid port ranges")
-    func urlCanonicalRejectsInvalidPortRanges() throws {
+    @Test
+    func `URL canonical rejects invalid port ranges`() throws {
         let originalURL = URL(string: "https://example.com/path")!
 
         #expect(throws: URLCanonicalError.portOutOfRange(0)) {

@@ -10,13 +10,13 @@ import Testing
 
 @testable import ServerFoundation
 
-@Suite("InMemoryStore Tests")
-struct InMemoryStoreTests {
+@Suite
+struct Test {
 
     // MARK: - Basic Operations Tests
 
-    @Test("InMemoryStore sets and gets values")
-    func storesSetsAndGetsValues() async {
+    @Test
+    func `In Memory Store sets and gets values`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1")
@@ -25,8 +25,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == "value1")
     }
 
-    @Test("InMemoryStore returns nil for non-existent keys")
-    func storeReturnsNilForNonExistentKeys() async {
+    @Test
+    func `In Memory Store returns nil for non-existent keys`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         let retrieved = await store.get("non-existent", as: String.self)
@@ -34,8 +34,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == nil)
     }
 
-    @Test("InMemoryStore removes values")
-    func storeRemovesValues() async {
+    @Test
+    func `In Memory Store removes values`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1")
@@ -45,8 +45,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == nil)
     }
 
-    @Test("InMemoryStore clears all values")
-    func storeClearsAllValues() async {
+    @Test
+    func `In Memory Store clears all values`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1")
@@ -66,8 +66,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Type-Safe Get Tests
 
-    @Test("InMemoryStore gets values with type safety")
-    func storeGetsValuesWithTypeSafety() async {
+    @Test
+    func `In Memory Store gets values with type safety`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("stringKey", value: "value1")
@@ -83,8 +83,8 @@ struct InMemoryStoreTests {
         #expect(boolValue == true)
     }
 
-    @Test("InMemoryStore returns nil for type mismatch")
-    func storeReturnsNilForTypeMismatch() async {
+    @Test
+    func `In Memory Store returns nil for type mismatch`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key", value: "string value")
@@ -96,8 +96,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Expiration Tests
 
-    @Test("InMemoryStore expires values after timeout")
-    func storeExpiresValuesAfterTimeout() async throws {
+    @Test
+    func `In Memory Store expires values after timeout`() async throws {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1", expiresIn: 0.1)
@@ -114,8 +114,8 @@ struct InMemoryStoreTests {
         #expect(expired == nil)
     }
 
-    @Test("InMemoryStore does not expire values without timeout")
-    func storeDoesNotExpireValuesWithoutTimeout() async throws {
+    @Test
+    func `In Memory Store does not expire values without timeout`() async throws {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1")
@@ -128,8 +128,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == "value1")
     }
 
-    @Test("InMemoryStore handles mixed expiration scenarios")
-    func storeHandlesMixedExpirationScenarios() async throws {
+    @Test
+    func `In Memory Store handles mixed expiration scenarios`() async throws {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("persistent", value: "persists")
@@ -146,8 +146,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Cleanup Timer Tests
 
-    @Test("InMemoryStore cleanup removes expired entries")
-    func storeCleanupRemovesExpiredEntries() async throws {
+    @Test
+    func `In Memory Store cleanup removes expired entries`() async throws {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 0.05)
 
         await store.set("key1", value: "value1", expiresIn: 0.02)
@@ -168,8 +168,8 @@ struct InMemoryStoreTests {
         #expect(key2Value == "value2")
     }
 
-    @Test("InMemoryStore manual cleanup removes expired entries")
-    func storeManualCleanupRemovesExpiredEntries() async throws {
+    @Test
+    func `In Memory Store manual cleanup removes expired entries`() async throws {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("key1", value: "value1", expiresIn: 0.05)
@@ -190,8 +190,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Count and State Tests
 
-    @Test("InMemoryStore tracks count correctly")
-    func storeTracksCountCorrectly() async {
+    @Test
+    func `In Memory Store tracks count correctly`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         var count = await store.count
@@ -219,8 +219,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Capacity Tests
 
-    @Test("InMemoryStore respects capacity limits")
-    func storeRespectsCapacityLimits() async {
+    @Test
+    func `In Memory Store respects capacity limits`() async {
         let store = InMemoryStore(capacity: 3, cleanupInterval: 60)
 
         await store.set("key1", value: "value1")
@@ -239,8 +239,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Concurrent Access Tests
 
-    @Test("InMemoryStore handles concurrent reads")
-    func storeHandlesConcurrentReads() async {
+    @Test
+    func `In Memory Store handles concurrent reads`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("shared", value: "value")
@@ -258,8 +258,8 @@ struct InMemoryStoreTests {
         }
     }
 
-    @Test("InMemoryStore handles concurrent writes")
-    func storeHandlesConcurrentWrites() async {
+    @Test
+    func `In Memory Store handles concurrent writes`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await withTaskGroup(of: Void.self) { group in
@@ -274,8 +274,8 @@ struct InMemoryStoreTests {
         #expect(count == 10)
     }
 
-    @Test("InMemoryStore handles concurrent reads and writes")
-    func storeHandlesConcurrentReadsAndWrites() async {
+    @Test
+    func `In Memory Store handles concurrent reads and writes`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
 
         await store.set("shared", value: "initial")
@@ -302,8 +302,8 @@ struct InMemoryStoreTests {
 
     // MARK: - Complex Type Tests
 
-    @Test("InMemoryStore stores complex types")
-    func storesComplexTypes() async {
+    @Test
+    func `In Memory Store stores complex types`() async {
         struct TestStruct: Equatable {
             let id: Int
             let name: String
@@ -318,8 +318,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == testValue)
     }
 
-    @Test("InMemoryStore stores arrays")
-    func storesArrays() async {
+    @Test
+    func `In Memory Store stores arrays`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
         let array = [1, 2, 3, 4, 5]
 
@@ -329,8 +329,8 @@ struct InMemoryStoreTests {
         #expect(retrieved == array)
     }
 
-    @Test("InMemoryStore stores dictionaries")
-    func storesDictionaries() async {
+    @Test
+    func `In Memory Store stores dictionaries`() async {
         let store = InMemoryStore(capacity: 100, cleanupInterval: 60)
         let dict = ["key1": "value1", "key2": "value2"]
 

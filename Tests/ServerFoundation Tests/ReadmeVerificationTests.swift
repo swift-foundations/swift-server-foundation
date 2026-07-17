@@ -12,18 +12,18 @@ import Testing
 
 @testable import ServerFoundation
 
-@Suite("README Verification")
-struct ReadmeVerificationTests {
+@Suite
+struct Test {
 
-    @Test("Quick Start - Logging example")
-    func loggingExample() throws {
+    @Test
+    func `Quick Start - Logging example`() throws {
         // From README line 42
         let logger = Logger(label: "com.example.app")
         #expect(logger.label == "com.example.app")
     }
 
-    @Test("Quick Start - JWT example structure")
-    func jwtExampleStructure() throws {
+    @Test
+    func `Quick Start - JWT example structure`() throws {
         // This verifies the JWT type exists and has expected initializer signature
         // Note: Actual signing requires a valid key
 
@@ -34,8 +34,8 @@ struct ReadmeVerificationTests {
         // which is beyond the scope of README verification
     }
 
-    @Test("Module - ServerFoundation can be imported")
-    func serverFoundationImports() {
+    @Test
+    func `Module - Server Foundation can be imported`() {
         // Verify re-exported modules are accessible through the shell
         let _: Logger.Type = Logger.self
         let _: JWT.Type = JWT.self
