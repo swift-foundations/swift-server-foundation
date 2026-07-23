@@ -14,7 +14,6 @@ extension Target.Dependency {
 
 extension Target.Dependency {
     static var cachePrimitives: Self { .product(name: "Cache Primitives", package: "swift-cache-primitives") }
-    static var typesFoundation: Self { .product(name: "TypesFoundation", package: "swift-types-foundation") }
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
     static var nioCore: Self { .product(name: "NIOCore", package: "swift-nio") }
     static var nioEmbedded: Self { .product(name: "NIOEmbedded", package: "swift-nio") }
@@ -51,7 +50,6 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/swift-primitives/swift-cache-primitives.git", branch: "main"),
-        .package(url: "https://github.com/swift-foundations/swift-types-foundation.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-password.git", branch: "main"),
@@ -74,7 +72,7 @@ let package = Package(
                 .clocksDependencies,
                 .throttlingDependencies,
                 .translatingDependencies,
-                .typesFoundation,
+                .dependencies,
                 .serverEnvVars,
                 .nioCore,
                 .nioEmbedded,
