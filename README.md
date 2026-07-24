@@ -13,8 +13,8 @@
 > | `\.httpClient` (C2) | **deleted** — dead code (de-engine R3) |
 > | `\.mainEventLoopGroup` (C3) | stays here until β-end (de-engine R5) |
 > | console logger handler (C4) | [swift-logger-handlers](https://github.com/swift-foundations/swift-logger-handlers) `Logger.Handler.Console` |
-> | `InMemoryStore` TTL cache (C5) | parked here → swift-time-to-live fill (pending ⚑) |
-> | `URL.canonical` (C6) | parked here → swift-uri fill (design item) |
+> | `InMemoryStore` TTL cache (C5) | [swift-time-to-live](https://github.com/swift-foundations/swift-time-to-live) `Store.InMemory` |
+> | `URL.canonical` (C6) | [swift-uri](https://github.com/swift-foundations/swift-uri) `RFC_3986.URI.canonical(host:)` |
 > | `Path` constants (C7) | [swift-url-routing](https://github.com/swift-foundations/swift-url-routing) compat surface |
 > | `EnvVars` + `\.envVars`/`\.projectRoot` (C8) | [swift-environment-dependencies](https://github.com/swift-foundations/swift-environment-dependencies) |
 > | throttling × dependencies (C9) | [swift-throttling-dependencies](https://github.com/swift-foundations/swift-throttling-dependencies) |
