@@ -23,7 +23,6 @@ extension Target.Dependency {
     static var throttlingDependencies: Self { .product(name: "Throttling Dependencies", package: "swift-throttling-dependencies") }
     static var translatingDependencies: Self { .product(name: "Translating Dependencies", package: "swift-translating-dependencies") }
     static var environmentDependencies: Self { .product(name: "Environment Dependencies", package: "swift-environment-dependencies") }
-    static var environment: Self { .product(name: "Environment", package: "swift-environment") }
     static var logging: Self { .product(name: "Logging", package: "swift-log") }
     static var throttling: Self { .product(name: "Throttling", package: "swift-throttling") }
     static var passwordValidation: Self { .product(name: "PasswordValidation", package: "swift-password") }
@@ -48,7 +47,6 @@ let package = Package(
         .library(name: .serverEnvVars, targets: [.serverEnvVars])
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-foundations/swift-environment.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-json-web-token.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-password.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-throttling.git", branch: "main"),
