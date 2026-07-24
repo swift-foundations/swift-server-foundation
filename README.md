@@ -133,7 +133,6 @@ let apiKey = try EnvVars.API_KEY.require()
 - [swift-logger-handlers](https://github.com/swift-foundations/swift-logger-handlers): Focused logger handlers for Swift Logging.
 - [swift-password-validation](https://github.com/coenttb/swift-password-validation): A Swift package for type-safe password validation.
 - [swift-throttling](https://github.com/coenttb/swift-throttling): A Swift package for request throttling.
-- [swift-types-foundation](https://github.com/coenttb/swift-types-foundation): A Swift package bundling essential type-safe packages for domain modeling.
 - [swift-urlrequest-handler](https://github.com/coenttb/swift-urlrequest-handler): A Swift package for URLRequest handling with structured error handling.
 
 ### Used By
