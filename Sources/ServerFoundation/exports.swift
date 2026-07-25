@@ -11,6 +11,7 @@
 
 @_exported import Clocks_Dependencies
 @_exported import Crypto
+@_exported import Event_Loop_Group_Dependencies
 @_exported import JWT
 @_exported import Logging
 @_exported import PasswordValidation

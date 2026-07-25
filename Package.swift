@@ -14,9 +14,7 @@ extension Target.Dependency {
 
 extension Target.Dependency {
     static var urlRequestHandler: Self { .product(name: "URLRequestHandler", package: "swift-urlrequest-handler") }
-    static var nioCore: Self { .product(name: "NIOCore", package: "swift-nio") }
-    static var nioEmbedded: Self { .product(name: "NIOEmbedded", package: "swift-nio") }
-    static var nioPosix: Self { .product(name: "NIOPosix", package: "swift-nio") }
+    static var eventLoopGroupDependencies: Self { .product(name: "Event Loop Group Dependencies", package: "swift-event-loop-group-dependencies") }
     static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
     static var dependencies: Self { .product(name: "Dependencies", package: "swift-dependencies") }
     static var clocksDependencies: Self { .product(name: "Clocks Dependencies", package: "swift-clocks-dependencies") }
@@ -55,7 +53,7 @@ let package = Package(
         .package(url: "https://github.com/swift-foundations/swift-throttling-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-translating-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-environment-dependencies.git", branch: "main"),
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
+        .package(url: "https://github.com/swift-foundations/swift-event-loop-group-dependencies.git", branch: "main"),
         .package(url: "https://github.com/apple/swift-log.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", "3.0.0"..<"5.0.0"),
         .package(url: "https://github.com/swift-foundations/swift-urlrequest-handler.git", branch: "main")
@@ -69,9 +67,7 @@ let package = Package(
                 .translatingDependencies,
                 .dependencies,
                 .serverEnvVars,
-                .nioCore,
-                .nioEmbedded,
-                .nioPosix,
+                .eventLoopGroupDependencies,
                 .logging,
                 .throttling,
                 .urlRequestHandler,
