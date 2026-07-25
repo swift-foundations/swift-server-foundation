@@ -11,7 +11,7 @@
 > |---|---|
 > | `\.date` + `Date.Generator` (C1) | [swift-clocks-dependencies](https://github.com/swift-foundations/swift-clocks-dependencies) |
 > | `\.httpClient` (C2) | **deleted** — dead code (de-engine R3) |
-> | `\.mainEventLoopGroup` (C3) | stays here until β-end (de-engine R5) |
+> | `\.mainEventLoopGroup` (C3) | [swift-event-loop-group-dependencies](https://github.com/swift-foundations/swift-event-loop-group-dependencies) |
 > | console logger handler (C4) | [swift-logger-handlers](https://github.com/swift-foundations/swift-logger-handlers) `Logger.Handler.Console` |
 > | `InMemoryStore` TTL cache (C5) | [swift-time-to-live](https://github.com/swift-foundations/swift-time-to-live) `Store.InMemory` |
 > | `URL.canonical` (C6) | [swift-uri](https://github.com/swift-foundations/swift-uri) `RFC_3986.URI.canonical(host:)` |

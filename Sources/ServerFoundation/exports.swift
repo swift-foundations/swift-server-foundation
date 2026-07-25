@@ -20,7 +20,3 @@
 @_exported import Throttling_Dependencies
 @_exported import Translating_Dependencies
 @_exported import URLRequestHandler
-
-#if canImport(FoundationNetworking)
-    @_exported import FoundationNetworking
-#endif
