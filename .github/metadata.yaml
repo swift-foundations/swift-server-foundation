@@ -1,0 +1,15 @@
+# .github/metadata.yaml
+description: "A Swift package with tools to simplify server development."
+homepage: "https://swift-institute.org"
+topics:
+  - backend
+  - middleware
+  - server
+  - server-side-swift
+  - swift
+  - tools
+  - utilities
+  - vapor
+  - web-framework
+readme:
+  family: E
